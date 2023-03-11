@@ -28,8 +28,13 @@ public class IndexActivity extends AppCompatActivity {
         addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IndexActivity.this, LoginActivity.class);
-                startActivity(intent);
+                if(sessionUser.isLoggedIn()){
+                    Intent intent = new Intent(IndexActivity.this, CreateEventActivity.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(IndexActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 

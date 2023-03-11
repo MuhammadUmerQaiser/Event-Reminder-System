@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:text="@string/register"
             android:textSize="27dp"
             android:textColor="#063970"
             android:textAllCaps="true"
