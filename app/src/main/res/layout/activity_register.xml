@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
-    android:background="@drawable/index_animation">
+    tools:context=".RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register"
             android:textSize="27dp"
+            android:textColor="#063970"
             android:textAllCaps="true"
             android:gravity="center"
-            android:layout_marginTop="150dp"/>
+            android:layout_marginTop="120dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,6 +77,16 @@
                 android:password="true"
                 android:hint="Confirm Password" />
 
+            <TextView
+                android:id="@+id/alreadyHaveAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Already have an account?"
+                android:textSize="15dp"
+                android:textColor="#094b87"
+                android:textAllCaps="true"
+                android:layout_marginLeft="185dp"
+                android:layout_marginTop="5dp"/>
             <Button
                 android:id="@+id/register"
                 android:layout_width="match_parent"

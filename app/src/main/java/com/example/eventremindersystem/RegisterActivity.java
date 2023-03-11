@@ -2,11 +2,13 @@ package com.example.eventremindersystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -25,6 +27,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText nameRegister, emailRegister, contactRegister, passwordRegister, confirm_passwordRegister;
+    TextView alreadyHaveAccount;
     Button register;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +39,26 @@ public class RegisterActivity extends AppCompatActivity {
         contactRegister = (EditText)findViewById(R.id.contactRegister);
         passwordRegister = (EditText)findViewById(R.id.passwordRegister);
         confirm_passwordRegister = (EditText)findViewById(R.id.confirm_passwordRegister);
+        alreadyHaveAccount = (TextView)findViewById(R.id.alreadyHaveAccount);
         register = (Button)findViewById(R.id.register);
+
+        alreadyHaveAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String checkValidation = CheckAllFields();
-//                registerUser(nameRegister.getText().toString(), emailRegister.getText().toString(), contactRegister.getText().toString(), passwordRegister.getText().toString());
                 if(checkValidation.equals("")){
                     registerUser(nameRegister.getText().toString(), emailRegister.getText().toString(), contactRegister.getText().toString(), passwordRegister.getText().toString());
-//                    Toast.makeText(RegisterActivity.this, "Success", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
                 }else{
                     Toast.makeText(RegisterActivity.this, ""+checkValidation, Toast.LENGTH_LONG).show();
                 }

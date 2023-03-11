@@ -9,20 +9,38 @@ import android.widget.Button;
 
 public class IndexActivity extends AppCompatActivity {
 
-    Button addEvent;
+    Button addEvent, logout;
+    SessionUser sessionUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
 
         Button addEvent = (Button)findViewById(R.id.addEvent);
+        Button logout = (Button)findViewById(R.id.logout);
+        sessionUser = new SessionUser(IndexActivity.this);
+
+        if(sessionUser.isLoggedIn()){
+            logout.setVisibility(View.VISIBLE);
+        }
+
 
         addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IndexActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(IndexActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sessionUser.logout();
+                Intent intent = new Intent(IndexActivity.this, IndexActivity.class);
+                startActivity(intent);
+                Intent intent2 = new Intent(IndexActivity.this, LoginActivity.class);
+                startActivity(intent2);
             }
         });
     }
