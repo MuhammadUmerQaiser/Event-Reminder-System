@@ -30,6 +30,11 @@ public class SessionUser {
         return sharedPreferences.getBoolean("logged", false);
     }
 
+    public String getUserId(){
+        sharedPreferences = context.getSharedPreferences(Session_Name, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("id", "1");
+    }
+
     public void logout(){
         sharedPreferences = context.getSharedPreferences(Session_Name, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
