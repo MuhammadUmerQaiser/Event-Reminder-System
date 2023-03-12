@@ -160,7 +160,7 @@ public class CreateEventActivity extends AppCompatActivity {
                     String message = jsonObject.getString("message");
                     // on below line we are displaying a success toast message.
                     Toast.makeText(CreateEventActivity.this, ""+message, Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(CreateEventActivity.this, IndexActivity.class);
+                    Intent intent = new Intent(CreateEventActivity.this, EventListingActivity.class);
                     startActivity(intent);
                     finish();
                 } catch (JSONException e) {

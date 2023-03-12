@@ -3,6 +3,7 @@
     <string name="login"><u>Login</u></string>
     <string name="register"><u>Register</u></string>
     <string name="create_event"><u>Create Your Event</u></string>
+    <string name="view_event"><u>Yours Event</u></string>
     <string-array name="events_option">
         <item>Select Your Event</item>
         <item>Anniversary</item>

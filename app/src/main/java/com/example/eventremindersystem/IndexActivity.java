@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class IndexActivity extends AppCompatActivity {
 
-    Button addEvent, logout;
+    Button addEvent, logout, viewEvent;
     SessionUser sessionUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class IndexActivity extends AppCompatActivity {
 
         Button addEvent = (Button)findViewById(R.id.addEvent);
         Button logout = (Button)findViewById(R.id.logout);
+        Button viewEvent = (Button)findViewById(R.id.viewEvent);
         sessionUser = new SessionUser(IndexActivity.this);
 
         if(sessionUser.isLoggedIn()){
@@ -30,6 +31,19 @@ public class IndexActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(sessionUser.isLoggedIn()){
                     Intent intent = new Intent(IndexActivity.this, CreateEventActivity.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(IndexActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        viewEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(sessionUser.isLoggedIn()){
+                    Intent intent = new Intent(IndexActivity.this, EventListingActivity.class);
                     startActivity(intent);
                 }else{
                     Intent intent = new Intent(IndexActivity.this, LoginActivity.class);
